@@ -1,0 +1,26 @@
+{
+  "requestPolicies": {
+    "cors":{
+      "allowedOrigins": ["https://ctsgtolling-demo.crm.dynamics.com", "https://ctsgtolling-demo.crm.dynamics.com/"],
+      "allowedMethods": ["*"],
+      "allowedHeaders": ["odata-version", "OData-MaxVersion", "Accept", "Content-Type", "Authorization"],
+      "exposedHeaders": [],
+      "isAllowCredentialsEnabled": true,
+      "maxAgeInSeconds": 0
+    }
+  },
+  "routes": [
+    {
+      "path": "/fpms/acctRec",
+      "methods": ["POST"],
+      "backend": {
+        "type": "HTTP_BACKEND",
+        "url": "http://150.136.179.126:9292/fpms/acctRec/createAccountReceivables",
+        "connectTimeoutInSeconds": 60,
+        "readTimeoutInSeconds": 60,
+        "sendTimeoutInSeconds": 60,
+        "isSslVerifyDisabled": false		
+      }
+    }
+  ]
+}
