@@ -1,0 +1,137 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "title" : "Account receivables",
+    "description" : "Creation for Account receivables",
+    "contact" : {
+      "email" : "pavan.kumara3@conduent.com"
+    },
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version" : "1.0.0"
+  },
+  "servers" : [ {
+    "url" : "https://virtserver.swaggerhub.com/Pavan69/CRMToFPMScreateAccountReceivables/1.0.0",
+    "description" : "SwaggerHub API Auto Mocking"
+  } ],
+  "tags" : [ {
+    "name" : "admins",
+    "description" : "Secured Admin-only calls"
+  }, {
+    "name" : "developers",
+    "description" : "Operations available to regular developers"
+  } ],
+  "paths" : {
+    "/AccountReceivables" : {
+      "post" : {
+        "tags" : [ "admins" ],
+        "summary" : "adds an Account Receivables",
+        "description" : "Adds an Account Receivables to the system",
+        "operationId" : "AccountReceivables",
+        "requestBody" : {
+          "description" : "Inventory item to add",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/AccountReceivables"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "201" : {
+            "description" : "Account Receivables created"
+          },
+          "400" : {
+            "description" : "invalid input, object invalid"
+          },
+          "409" : {
+            "description" : "an existing Account Receivables already exists"
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "AccountReceivables" : {
+        "required" : [ "accountId", "accountType", "agency", "etcAccountId", "isTaxExempted", "rebillType", "storeId", "tagOrPlanDetails", "todId", "userId", "zipCode" ],
+        "type" : "object",
+        "properties" : {
+          "todId" : {
+            "type" : "string",
+            "format" : "uuid",
+            "example" : "d290f1ee-6c54-4b01-90e6-d701748f0851"
+          },
+          "accountId" : {
+            "type" : "string",
+            "example" : "Widget Adapter"
+          },
+          "etcAccountId" : {
+            "type" : "string",
+            "format" : "date-time",
+            "example" : "2016-08-29T09:12:33.001Z"
+          },
+          "userId" : {
+            "type" : "string",
+            "format" : "uuid",
+            "example" : "d290f1ee-6c54-4b01-90e6-d701748f0851"
+          },
+          "storeId" : {
+            "type" : "string",
+            "example" : "Widget Adapter"
+          },
+          "accountType" : {
+            "type" : "string",
+            "format" : "date-time",
+            "example" : "2016-08-29T09:12:33.001Z"
+          },
+          "rebillType" : {
+            "type" : "string",
+            "format" : "uuid",
+            "example" : "d290f1ee-6c54-4b01-90e6-d701748f0851"
+          },
+          "zipCode" : {
+            "type" : "string",
+            "example" : "Widget Adapter"
+          },
+          "isTaxExempted" : {
+            "type" : "string",
+            "format" : "date-time",
+            "example" : "2016-08-29T09:12:33.001Z"
+          },
+          "tagOrPlanDetails" : {
+            "$ref" : "#/components/schemas/tagOrPlanDetails"
+          }
+        },
+        "description" : "Adds an Account Receivables to the system"
+      },
+      "tagOrPlanDetails" : {
+        "required" : [ "plan", "planAgency", "quantity", "tagType" ],
+        "type" : "object",
+        "properties" : {
+          "tagType" : {
+            "type" : "string",
+            "example" : "ACME Corporation"
+          },
+          "quantity" : {
+            "type" : "string",
+            "format" : "url",
+            "example" : "https://www.acme-corp.com"
+          },
+          "plan" : {
+            "type" : "string",
+            "example" : "ACME Corporation"
+          },
+          "planAgency" : {
+            "type" : "string",
+            "example" : "ACME Corporation"
+          }
+        },
+        "description" : "Child Elements for Plan Details"
+      }
+    }
+  }
+}
